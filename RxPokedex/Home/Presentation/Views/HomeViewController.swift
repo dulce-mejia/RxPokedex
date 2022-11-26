@@ -21,6 +21,12 @@ final class HomeViewController: UIViewController {
         return stackView
     }()
     
+    private let pokemonList: UICollectionView = {
+        let collection = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
+        collection.backgroundColor = .clear
+        return collection
+    }()
+    
     init() {
         super.init(nibName: nil, bundle: nil)
     }
