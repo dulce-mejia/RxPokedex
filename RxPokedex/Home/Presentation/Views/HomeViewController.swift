@@ -13,6 +13,12 @@ final class HomeViewController: UIViewController {
         static let title = "Pokedéx"
     }
     
+    enum Constants {
+        static let stackSpacing: CGFloat = 5
+        static let imageViewHeight: CGFloat = 150
+        static let imageViewWidth: CGFloat = 150
+    }
+    
     private let container: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -46,7 +52,9 @@ final class HomeViewController: UIViewController {
         view.backgroundColor = .systemBackground
         setupNavigationBar()
         view.addSubview(container)
+        container.addArrangedSubview(pokemonList)
         setConstraints()
+        configureCollectionView()
     }
     
     private func setupNavigationBar() {
@@ -61,5 +69,36 @@ final class HomeViewController: UIViewController {
             container.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
             container.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor)
         ])
+    }
+    
+    private func configureCollectionView() {
+        let collectionFlowLayout = UICollectionViewFlowLayout()
+        collectionFlowLayout.scrollDirection = .vertical
+        collectionFlowLayout.itemSize = CGSize(width: Constants.imageViewWidth,
+                                               height: Constants.imageViewHeight)
+        pokemonList.collectionViewLayout = collectionFlowLayout
+        pokemonList.register(UINib(nibName: PokemonView.nibName, bundle: .main), forCellWithReuseIdentifier: PokemonView.reuseIdentifier)
+        pokemonList.dataSource = self
+    }
+}
+extension HomeViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        10
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PokemonView.reuseIdentifier, for: indexPath)
+        guard let pokemonView = cell as? PokemonView else {
+            return UICollectionViewCell()
+        }
+        return cell
+    }
+    
+    
+}
+
+extension HomeViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("didselect....")
     }
 }
