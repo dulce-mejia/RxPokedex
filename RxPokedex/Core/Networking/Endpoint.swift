@@ -13,7 +13,7 @@ protocol Endpoint {
 }
 extension Endpoint {
     private var base: String {
-    "https://pokeapi.co/api/v2"
+    "https://pokeapi.co/api"
     }
     
     var urlComponents: URLComponents? {

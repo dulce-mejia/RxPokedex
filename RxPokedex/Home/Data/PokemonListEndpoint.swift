@@ -9,7 +9,7 @@ import Foundation
 
 struct PokemonListEndpoint: Endpoint {
     var path: String {
-        "/pokemon"
+        "/api/v2/pokemon"
     }
     
     var queryItems: [String : String] = ["limit":"151"]

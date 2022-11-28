@@ -33,7 +33,9 @@ final class HomeViewController: UIViewController {
         return collection
     }()
     
-    init() {
+    private let viewModel: PokemonListViewModel
+    init(viewModel: PokemonListViewModel) {
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -46,6 +48,7 @@ final class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        viewModel.loadPokemon()
     }
     
     private func configureUI() {

@@ -27,33 +27,33 @@ final class URLSessionHTTPClient: HTTPClient {
         static let applicationJson = "application/json"
     }
     
-    func get(from url: URL) -> RxSwift.Observable<Data> {
+    func get(from url: URL) -> RxSwift.Observable<(response: HTTPURLResponse, data: Data)> {
         let urlRequest = URLRequest(url: url)
-        return session.rx.data(request: urlRequest)
+        return session.rx.response(request: urlRequest)
     }
     
-    func post(from url: URL, data: Data) -> RxSwift.Observable<Data> {
+    func post(from url: URL, data: Data) -> RxSwift.Observable<(response: HTTPURLResponse, data: Data)> {
         // TODO: post implementation
         let urlRequest = URLRequest(url: url)
-        return session.rx.data(request: urlRequest)
+        return session.rx.response(request: urlRequest)
     }
     
-    func put(from url: URL, data: Data) -> RxSwift.Observable<Data> {
+    func put(from url: URL, data: Data) -> RxSwift.Observable<(response: HTTPURLResponse, data: Data)> {
         // TODO: put implementation
         let urlRequest = URLRequest(url: url)
-        return session.rx.data(request: urlRequest)
+        return session.rx.response(request: urlRequest)
     }
     
-    func patch(from url: URL, data: Data) -> RxSwift.Observable<Data> {
+    func patch(from url: URL, data: Data) -> RxSwift.Observable<(response: HTTPURLResponse, data: Data)> {
         // TODO: patch implementation
         let urlRequest = URLRequest(url: url)
-        return session.rx.data(request: urlRequest)
+        return session.rx.response(request: urlRequest)
     }
     
-    func delete(from url: URL) -> RxSwift.Observable<Data> {
+    func delete(from url: URL) -> RxSwift.Observable<(response: HTTPURLResponse, data: Data)> {
         // TODO: delete implementation
         let urlRequest = URLRequest(url: url)
-        return session.rx.data(request: urlRequest)
+        return session.rx.response(request: urlRequest)
     }
     
     
