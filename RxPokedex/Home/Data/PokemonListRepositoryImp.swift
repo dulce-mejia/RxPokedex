@@ -31,13 +31,10 @@ final class PokemonListRepositoryImp: PokemonListRepository {
         let results: [PokemonDTO]
     }
     
-    func fetchPokemonList() -> RxSwift.Observable<[Pokemon]> {
+    func fetchPokemonList() -> Observable<[Pokemon]> {
         let endpoint = PokemonListEndpoint()
         let finalUrl = endpoint.urlComponents?.url
         return client.get(from: finalUrl!)
-            .filter { response, _ in
-                return 200..<300 ~= response.statusCode
-            }
             .map { response, data -> PokemonPageResultDTO in
                 guard let jsonObject = try? JSONDecoder().decode(PokemonPageResultDTO.self, from: data) else {
                     return PokemonPageResultDTO(count: 1, next: "", previous: nil, results: [])

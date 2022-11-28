@@ -27,34 +27,39 @@ final class URLSessionHTTPClient: HTTPClient {
         static let applicationJson = "application/json"
     }
     
-    func get(from url: URL) -> RxSwift.Observable<(response: HTTPURLResponse, data: Data)> {
+    func get(from url: URL) -> Observable<(response: HTTPURLResponse, data: Data)> {
         let urlRequest = URLRequest(url: url)
-        return session.rx.response(request: urlRequest)
+        return self.request(urlRequest)
     }
     
-    func post(from url: URL, data: Data) -> RxSwift.Observable<(response: HTTPURLResponse, data: Data)> {
+    func post(from url: URL, data: Data) -> Observable<(response: HTTPURLResponse, data: Data)> {
         // TODO: post implementation
         let urlRequest = URLRequest(url: url)
-        return session.rx.response(request: urlRequest)
+        return self.request(urlRequest)
     }
     
-    func put(from url: URL, data: Data) -> RxSwift.Observable<(response: HTTPURLResponse, data: Data)> {
+    func put(from url: URL, data: Data) -> Observable<(response: HTTPURLResponse, data: Data)> {
         // TODO: put implementation
         let urlRequest = URLRequest(url: url)
-        return session.rx.response(request: urlRequest)
+        return self.request(urlRequest)
     }
     
-    func patch(from url: URL, data: Data) -> RxSwift.Observable<(response: HTTPURLResponse, data: Data)> {
+    func patch(from url: URL, data: Data) -> Observable<(response: HTTPURLResponse, data: Data)> {
         // TODO: patch implementation
         let urlRequest = URLRequest(url: url)
-        return session.rx.response(request: urlRequest)
+        return self.request(urlRequest)
     }
     
-    func delete(from url: URL) -> RxSwift.Observable<(response: HTTPURLResponse, data: Data)> {
+    func delete(from url: URL) -> Observable<(response: HTTPURLResponse, data: Data)> {
         // TODO: delete implementation
         let urlRequest = URLRequest(url: url)
-        return session.rx.response(request: urlRequest)
+        return self.request(urlRequest)
     }
     
-    
+    private func request(_ request: URLRequest) -> Observable<(response: HTTPURLResponse, data: Data)> {
+        session.rx.response(request: request)
+            .filter { response, _ in
+                return 200..<300 ~= response.statusCode
+            }
+    }
 }
