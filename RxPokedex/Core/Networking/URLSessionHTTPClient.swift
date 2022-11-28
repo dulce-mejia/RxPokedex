@@ -29,37 +29,46 @@ final class URLSessionHTTPClient: HTTPClient {
     
     func get(from url: URL) -> Observable<(response: HTTPURLResponse, data: Data)> {
         let urlRequest = URLRequest(url: url)
-        return self.request(urlRequest)
+        let response = Observable.from([urlRequest])
+        return self.request(response)
     }
     
     func post(from url: URL, data: Data) -> Observable<(response: HTTPURLResponse, data: Data)> {
         // TODO: post implementation
         let urlRequest = URLRequest(url: url)
-        return self.request(urlRequest)
+        let response = Observable.from([urlRequest])
+        return self.request(response)
     }
     
     func put(from url: URL, data: Data) -> Observable<(response: HTTPURLResponse, data: Data)> {
         // TODO: put implementation
         let urlRequest = URLRequest(url: url)
-        return self.request(urlRequest)
+        let response = Observable.from([urlRequest])
+        return self.request(response)
     }
     
     func patch(from url: URL, data: Data) -> Observable<(response: HTTPURLResponse, data: Data)> {
         // TODO: patch implementation
         let urlRequest = URLRequest(url: url)
-        return self.request(urlRequest)
+        let response = Observable.from([urlRequest])
+        return self.request(response)
     }
     
     func delete(from url: URL) -> Observable<(response: HTTPURLResponse, data: Data)> {
         // TODO: delete implementation
         let urlRequest = URLRequest(url: url)
-        return self.request(urlRequest)
+        let response = Observable.from([urlRequest])
+        return self.request(response)
     }
     
-    private func request(_ request: URLRequest) -> Observable<(response: HTTPURLResponse, data: Data)> {
-        session.rx.response(request: request)
+    private func request(_ request: Observable<URLRequest>) -> Observable<(response: HTTPURLResponse, data: Data)> {
+        request
+            .flatMap { request -> Observable<(response: HTTPURLResponse, data: Data)> in
+                return self.session.rx.response(request: request)
+            }
             .filter { response, _ in
                 return 200..<300 ~= response.statusCode
             }
+            .share(replay: 1)
     }
 }
