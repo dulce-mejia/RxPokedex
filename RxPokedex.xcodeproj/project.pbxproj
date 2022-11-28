@@ -21,7 +21,6 @@
 		83920FB229346490003111EF /* GetPokemonListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83920FB129346490003111EF /* GetPokemonListUseCase.swift */; };
 		83920FB4293464FD003111EF /* PokemonListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83920FB3293464FD003111EF /* PokemonListRepository.swift */; };
 		83920FB629346E16003111EF /* PokemonListRepositoryImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83920FB529346E16003111EF /* PokemonListRepositoryImp.swift */; };
-		83920FB829347063003111EF /* PokemonListMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83920FB729347063003111EF /* PokemonListMapper.swift */; };
 		83920FBA29347FD9003111EF /* GetPokemonListUseCaseImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83920FB929347FD9003111EF /* GetPokemonListUseCaseImp.swift */; };
 		83920FBC29348073003111EF /* PokemonListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83920FBB29348073003111EF /* PokemonListViewModel.swift */; };
 		91147D6F29314B91003C3265 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91147D6E29314B91003C3265 /* Coordinator.swift */; };
@@ -71,7 +70,6 @@
 		83920FB129346490003111EF /* GetPokemonListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPokemonListUseCase.swift; sourceTree = "<group>"; };
 		83920FB3293464FD003111EF /* PokemonListRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonListRepository.swift; sourceTree = "<group>"; };
 		83920FB529346E16003111EF /* PokemonListRepositoryImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonListRepositoryImp.swift; sourceTree = "<group>"; };
-		83920FB729347063003111EF /* PokemonListMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonListMapper.swift; sourceTree = "<group>"; };
 		83920FB929347FD9003111EF /* GetPokemonListUseCaseImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPokemonListUseCaseImp.swift; sourceTree = "<group>"; };
 		83920FBB29348073003111EF /* PokemonListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PokemonListViewModel.swift; path = RxPokedex/Home/Data/PokemonListViewModel.swift; sourceTree = SOURCE_ROOT; };
 		91147D6E29314B91003C3265 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
@@ -149,7 +147,6 @@
 			children = (
 				83920FAD29345FEC003111EF /* PokemonListEndpoint.swift */,
 				83920FB529346E16003111EF /* PokemonListRepositoryImp.swift */,
-				83920FB729347063003111EF /* PokemonListMapper.swift */,
 				83920FB929347FD9003111EF /* GetPokemonListUseCaseImp.swift */,
 			);
 			path = Data;
@@ -553,7 +550,6 @@
 				91E3E109292E855C000B9954 /* AppDelegate.swift in Sources */,
 				83920FBA29347FD9003111EF /* GetPokemonListUseCaseImp.swift in Sources */,
 				91147D7629314F85003C3265 /* HomeFactory.swift in Sources */,
-				83920FB829347063003111EF /* PokemonListMapper.swift in Sources */,
 				83920FAE29345FEC003111EF /* PokemonListEndpoint.swift in Sources */,
 				83920FA0293449CD003111EF /* HTTPClient.swift in Sources */,
 				83920FB629346E16003111EF /* PokemonListRepositoryImp.swift in Sources */,
