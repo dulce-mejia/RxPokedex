@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RxSwift
 
 final class HomeViewController: UIViewController {
     
@@ -44,11 +45,20 @@ final class HomeViewController: UIViewController {
     }
     
     weak var coordinator: HomeCoordinator?
+    private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        bindings()
+    }
+    
+    private func bindings() {
         viewModel.loadPokemon()
+            .subscribe { pokemonList in
+                print(pokemonList)
+            }
+            .disposed(by: disposeBag)
     }
     
     private func configureUI() {
