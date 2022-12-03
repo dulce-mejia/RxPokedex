@@ -13,16 +13,21 @@ class PokemonView: UICollectionViewCell {
     
     private enum Constants {
         static let fontSize: CGFloat = 15
-        static let cornerRadius: CGFloat = 75
         static let numberOfLines: Int = 1
     }
     
     @IBOutlet weak var pokemonImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     
+    var viewModel: PokemonViewViewModel? {
+        didSet {
+            configureCell()
+        }
+    }
+    
     override func layoutSubviews() {
         super.layoutSubviews()
-        self.layer.cornerRadius = Constants.cornerRadius
+        self.pokemonImage.layer.cornerRadius = self.pokemonImage.bounds.height / 2
         self.clipsToBounds = true
     }
     
@@ -33,5 +38,10 @@ class PokemonView: UICollectionViewCell {
     private func setupUI() {
         nameLabel.font = UIFont.systemFont(ofSize: Constants.fontSize)
         nameLabel.numberOfLines = Constants.numberOfLines
+    }
+    
+    private func configureCell() {
+        guard let viewModel  = viewModel else { return }
+        nameLabel.text = viewModel.pokemon.name
     }
 }

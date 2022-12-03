@@ -10,6 +10,7 @@
 		3ABE7B995BFA8AEDA556CC0D /* Pods_RxPokedex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61463F21331E6EAA363CEFC5 /* Pods_RxPokedex.framework */; };
 		4A710A9B3AA3408B90A3F101 /* Pods_RxPokedex_RxPokedexUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A10F551DCDDBCEB09CD8363 /* Pods_RxPokedex_RxPokedexUITests.framework */; };
 		4CC9FBB720F76956516C05A0 /* Pods_RxPokedexTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F2523C2C1DB67DD2850CEEC /* Pods_RxPokedexTests.framework */; };
+		8318A8BC293BF8EF003F6EA7 /* PokemonViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8318A8BB293BF8EF003F6EA7 /* PokemonViewViewModel.swift */; };
 		83920FA0293449CD003111EF /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83920F9F293449CD003111EF /* HTTPClient.swift */; };
 		83920FA22934526B003111EF /* URLSessionHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83920FA12934526B003111EF /* URLSessionHTTPClient.swift */; };
 		83920FA4293453E1003111EF /* HTTPClientError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83920FA3293453E1003111EF /* HTTPClientError.swift */; };
@@ -59,6 +60,7 @@
 		4266DB437D442B0032E3BF2D /* Pods-RxPokedex.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxPokedex.debug.xcconfig"; path = "Target Support Files/Pods-RxPokedex/Pods-RxPokedex.debug.xcconfig"; sourceTree = "<group>"; };
 		61463F21331E6EAA363CEFC5 /* Pods_RxPokedex.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxPokedex.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F06515750AED9A4D31392C9 /* Pods-RxPokedexTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxPokedexTests.release.xcconfig"; path = "Target Support Files/Pods-RxPokedexTests/Pods-RxPokedexTests.release.xcconfig"; sourceTree = "<group>"; };
+		8318A8BB293BF8EF003F6EA7 /* PokemonViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PokemonViewViewModel.swift; path = RxPokedex/Home/Data/PokemonViewViewModel.swift; sourceTree = SOURCE_ROOT; };
 		83920F9F293449CD003111EF /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		83920FA12934526B003111EF /* URLSessionHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClient.swift; sourceTree = "<group>"; };
 		83920FA3293453E1003111EF /* HTTPClientError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClientError.swift; sourceTree = "<group>"; };
@@ -228,6 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				83920FBB29348073003111EF /* PokemonListViewModel.swift */,
+				8318A8BB293BF8EF003F6EA7 /* PokemonViewViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -563,6 +566,7 @@
 				83920FA7293454EB003111EF /* PokemonView.swift in Sources */,
 				83920FBC29348073003111EF /* PokemonListViewModel.swift in Sources */,
 				83920FAC29345E97003111EF /* Endpoint.swift in Sources */,
+				8318A8BC293BF8EF003F6EA7 /* PokemonViewViewModel.swift in Sources */,
 				83920FA22934526B003111EF /* URLSessionHTTPClient.swift in Sources */,
 				83920FB4293464FD003111EF /* PokemonListRepository.swift in Sources */,
 			);

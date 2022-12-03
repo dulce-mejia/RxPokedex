@@ -34,7 +34,10 @@ final class HomeViewController: UIViewController {
         return collection
     }()
     
+    private let disposeBag = DisposeBag()
     private let viewModel: PokemonListViewModel
+    weak var coordinator: HomeCoordinator?
+    
     init(viewModel: PokemonListViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -44,9 +47,6 @@ final class HomeViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    weak var coordinator: HomeCoordinator?
-    private let disposeBag = DisposeBag()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
@@ -54,9 +54,9 @@ final class HomeViewController: UIViewController {
     }
     
     private func bindings() {
-        viewModel.loadPokemon()
-            .subscribe { pokemonList in
-                print(pokemonList)
+        viewModel.output.pokemonList
+            .drive(pokemonList.rx.items(cellIdentifier: PokemonView.reuseIdentifier, cellType: PokemonView.self)) { _,pokemonModel,cell in
+                cell.viewModel = PokemonViewViewModel(pokemon: pokemonModel)
             }
             .disposed(by: disposeBag)
     }
@@ -91,27 +91,5 @@ final class HomeViewController: UIViewController {
                                                height: Constants.imageViewHeight)
         pokemonList.collectionViewLayout = collectionFlowLayout
         pokemonList.register(UINib(nibName: PokemonView.nibName, bundle: .main), forCellWithReuseIdentifier: PokemonView.reuseIdentifier)
-        pokemonList.dataSource = self
-    }
-}
-extension HomeViewController: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        10
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PokemonView.reuseIdentifier, for: indexPath)
-        guard let pokemonView = cell as? PokemonView else {
-            return UICollectionViewCell()
-        }
-        return cell
-    }
-    
-    
-}
-
-extension HomeViewController: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("didselect....")
     }
 }

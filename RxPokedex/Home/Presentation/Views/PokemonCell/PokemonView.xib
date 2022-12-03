@@ -18,23 +18,23 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bulbasaur" translatesAutoresizingMaskIntoConstraints="NO" id="BWO-jA-lAu">
-                        <rect key="frame" x="-237.66666666666666" y="8.0000000000000071" width="625.33333333333337" height="115.66666666666669"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <rect key="frame" x="18.666666666666657" y="8.0000000000000071" width="112.66666666666669" height="112.66666666666669"/>
+                        <color key="backgroundColor" systemColor="systemGray5Color"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="115.67" id="0G5-hu-qNn"/>
-                            <constraint firstAttribute="width" constant="625.33000000000004" id="wj6-6T-XMe"/>
+                            <constraint firstAttribute="height" constant="112.67" id="2YW-f8-1Ad"/>
+                            <constraint firstAttribute="width" secondItem="BWO-jA-lAu" secondAttribute="height" multiplier="1:1" id="Smn-gb-B5J"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Pokemon" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="638-zt-BkF">
-                        <rect key="frame" x="8" y="125.66666666666667" width="134" height="16.333333333333329"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
+                        <rect key="frame" x="8" y="122.66666666666667" width="134" height="19.333333333333329"/>
+                        <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="17"/>
+                        <color key="textColor" systemColor="systemBlueColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
-            <color key="backgroundColor" systemColor="systemGray5Color"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="BWO-jA-lAu" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="62r-4e-y5p"/>
                 <constraint firstAttribute="trailing" secondItem="638-zt-BkF" secondAttribute="trailing" constant="8" id="eaK-Bt-Nbc"/>
@@ -53,6 +53,9 @@
     </objects>
     <resources>
         <image name="bulbasaur" width="625" height="624"/>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemGray5Color">
             <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
