@@ -8,8 +8,7 @@
 import Foundation
 
 struct HomeFactory {
-    func makeHomeViewController() -> HomeViewController {
-        let client = URLSessionHTTPClient(session: URLSession(configuration: .default))
+    func makeHomeViewController(client: HTTPClient) -> HomeViewController {
         let repo = PokemonListRepositoryImp(client: client)
         let useCase = GetPokemonListUseCaseImp(repository: repo)
         let viewModel = PokemonListViewModel(useCase: useCase)

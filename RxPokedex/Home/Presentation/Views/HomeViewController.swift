@@ -62,7 +62,7 @@ final class HomeViewController: UIViewController {
         
         pokemonList.rx.modelSelected(Pokemon.self)
             .subscribe(onNext: { [weak self] pokemon in
-                self?.coordinator?.showPokemonDetails(pokemon)
+                self?.coordinator?.showPokemonDetails(pokemon.url)
             })
             .disposed(by: disposeBag)
     }

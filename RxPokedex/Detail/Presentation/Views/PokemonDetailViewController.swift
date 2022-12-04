@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RxSwift
 
 class PokemonDetailViewController: UIViewController {
     
@@ -52,6 +53,7 @@ class PokemonDetailViewController: UIViewController {
     }()
     
     private let viewModel: PokemonDetailViewModel
+    private let disposeBag = DisposeBag()
     
     init(viewModel: PokemonDetailViewModel) {
         self.viewModel = viewModel
@@ -92,6 +94,14 @@ class PokemonDetailViewController: UIViewController {
     }
     
     private func configureUI() {
-        nameLabel.text = viewModel.getName()
+        viewModel.output.detail
+            .observe(on: MainScheduler.instance)
+            .subscribe { [weak self] detail in
+                self?.nameLabel.text = detail.name
+                self?.idLabel.text = "\(detail.id)"
+                self?.weightLabel.text = "\(detail.weight)"
+                self?.heightLabel.text = "\(detail.height)"
+            }
+            .disposed(by: disposeBag)
     }
 }

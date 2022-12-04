@@ -8,8 +8,10 @@
 import Foundation
 
 struct DetailFactory {
-    func makeDetailViewController(_ pokemon: Pokemon) -> PokemonDetailViewController {
-        let viewModel = PokemonDetailViewModel(pokemon: pokemon)
+    func makeDetailViewController(_ url: String, client: HTTPClient) -> PokemonDetailViewController {
+        let repository = PokemonDetailRepositoryImp(client: client)
+        let useCase = GetPokemonDetailUseCaseImp(repository)
+        let viewModel = PokemonDetailViewModel(url: url, useCase: useCase)
         return PokemonDetailViewController(viewModel: viewModel)
     }
 }

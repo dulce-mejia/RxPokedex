@@ -22,7 +22,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     private func runAppFlow(_ scene: UIWindowScene) {
         let nav = UINavigationController()
-        coordinator = HomeCoordinator(nav)
+        let client = URLSessionHTTPClient(session: URLSession(configuration: .default))
+        coordinator = HomeCoordinator(nav, client: client)
         coordinator?.start()
         
         self.window = UIWindow(windowScene: scene)

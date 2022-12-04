@@ -10,20 +10,22 @@ final class HomeCoordinator: Coordinator {
     var childCoordinators: [Coordinator] = []
     
     var navigationController: UINavigationController
+    private let client: HTTPClient
     
-    init(_ navigationController: UINavigationController) {
+    init(_ navigationController: UINavigationController, client: HTTPClient) {
         self.navigationController = navigationController
+        self.client = client
     }
     
     func start() {
-        let vc = HomeFactory().makeHomeViewController()
+        let vc = HomeFactory().makeHomeViewController(client: client)
         vc.coordinator = self
         self.navigationController.pushViewController(vc, animated: true)
     }
     
     
-    func showPokemonDetails(_ pokemon: Pokemon) {
-        let vc = DetailFactory().makeDetailViewController(pokemon)
+    func showPokemonDetails(_ url: String) {
+        let vc = DetailFactory().makeDetailViewController(url, client: client)
         self.navigationController.pushViewController(vc, animated: true)
     }
 }
