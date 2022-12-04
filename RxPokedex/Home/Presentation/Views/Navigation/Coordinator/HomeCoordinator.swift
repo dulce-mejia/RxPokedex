@@ -22,7 +22,8 @@ final class HomeCoordinator: Coordinator {
     }
     
     
-    func showPokemonDetails(_ pokemon: AnyObject) {
-        
+    func showPokemonDetails(_ pokemon: Pokemon) {
+        let vc = DetailFactory().makeDetailViewController(pokemon)
+        self.navigationController.pushViewController(vc, animated: true)
     }
 }

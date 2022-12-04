@@ -59,6 +59,12 @@ final class HomeViewController: UIViewController {
                 cell.viewModel = PokemonViewViewModel(pokemon: pokemonModel)
             }
             .disposed(by: disposeBag)
+        
+        pokemonList.rx.modelSelected(Pokemon.self)
+            .subscribe(onNext: { [weak self] pokemon in
+                self?.coordinator?.showPokemonDetails(pokemon)
+            })
+            .disposed(by: disposeBag)
     }
     
     private func configureUI() {

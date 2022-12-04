@@ -51,7 +51,10 @@ class PokemonDetailViewController: UIViewController {
         return stack
     }()
     
-    init() {
+    private let viewModel: PokemonDetailViewModel
+    
+    init(viewModel: PokemonDetailViewModel) {
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -63,6 +66,7 @@ class PokemonDetailViewController: UIViewController {
         super.viewDidLoad()
         print("view did load")
         setupUI()
+        configureUI()
     }
     
     private func setupUI() {
@@ -85,5 +89,9 @@ class PokemonDetailViewController: UIViewController {
             pokemonImage.heightAnchor.constraint(equalToConstant: 150),
             pokemonImage.widthAnchor.constraint(equalToConstant: 150)
         ])
+    }
+    
+    private func configureUI() {
+        nameLabel.text = viewModel.getName()
     }
 }
