@@ -18,14 +18,37 @@ class PokemonDetailViewController: UIViewController {
     private let nameLabel: UILabel = {
         let label = UILabel()
         label.text = "Bulbasaur"
+        label.font = UIFont.boldSystemFont(ofSize: 18)
+        label.textColor = .systemBlue
+        return label
+    }()
+    
+    private let idTitleLabel: UILabel = {
+        let label = UILabel()
+        label.text = "ID: "
         label.textColor = .label
+        label.font = UIFont.boldSystemFont(ofSize: 14)
         return label
     }()
     
     private let idLabel: UILabel = {
         let label = UILabel()
-        label.text = "ID: "
         label.textColor = .label
+        return label
+    }()
+    
+    private lazy var idContainer: UIStackView = {
+        let stack = UIStackView(arrangedSubviews: [idTitleLabel, idLabel])
+        stack.axis = .horizontal
+        stack.distribution = .fill
+        return stack
+    }()
+    
+    private let weightTitleLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Weight: "
+        label.textColor = .label
+        label.font = UIFont.boldSystemFont(ofSize: 14)
         return label
     }()
     
@@ -36,11 +59,33 @@ class PokemonDetailViewController: UIViewController {
         return label
     }()
     
+    private lazy var weightContainer: UIStackView = {
+        let stack = UIStackView(arrangedSubviews: [weightTitleLabel, weightLabel])
+        stack.axis = .horizontal
+        stack.distribution = .fill
+        return stack
+    }()
+    
+    private let heightTitleLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Height: "
+        label.font = UIFont.boldSystemFont(ofSize: 14)
+        label.textColor = .label
+        return label
+    }()
+    
     private let heightLabel: UILabel = {
         let label = UILabel()
         label.text = "height: "
         label.textColor = .label
         return label
+    }()
+    
+    private lazy var heightContainer: UIStackView = {
+        let stack = UIStackView(arrangedSubviews: [heightTitleLabel, heightLabel])
+        stack.axis = .horizontal
+        stack.distribution = .fill
+        return stack
     }()
     
     private let container: UIStackView = {
@@ -66,7 +111,6 @@ class PokemonDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("view did load")
         setupUI()
         configureUI()
     }
@@ -76,9 +120,9 @@ class PokemonDetailViewController: UIViewController {
         view.addSubview(container)
         container.addArrangedSubview(pokemonImage)
         container.addArrangedSubview(nameLabel)
-        container.addArrangedSubview(idLabel)
-        container.addArrangedSubview(weightLabel)
-        container.addArrangedSubview(heightLabel)
+        container.addArrangedSubview(idContainer)
+        container.addArrangedSubview(weightContainer)
+        container.addArrangedSubview(heightContainer)
         
         setConstraints()
     }
