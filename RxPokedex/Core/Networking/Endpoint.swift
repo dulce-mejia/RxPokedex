@@ -20,7 +20,7 @@ extension Endpoint {
         guard let components = URLComponents(string: base) else { return nil }
         var newComponents = components
         newComponents.path = path
-        newComponents.queryItems?.append(contentsOf: queryItems.map({URLQueryItem(name: $0, value: $1)}))
+        newComponents.queryItems = queryItems.map { URLQueryItem(name: $0, value: $1) }
         return newComponents
     }
 }

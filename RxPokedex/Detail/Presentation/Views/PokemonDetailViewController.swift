@@ -142,6 +142,7 @@ class PokemonDetailViewController: UIViewController {
             .observe(on: MainScheduler.instance)
             .subscribe { [weak self] detail in
                 self?.nameLabel.text = detail.name
+                self?.pokemonImage.image = UIImage(named: detail.name)
                 self?.idLabel.text = "\(detail.id)"
                 self?.weightLabel.text = "\(detail.weight)"
                 self?.heightLabel.text = "\(detail.height)"

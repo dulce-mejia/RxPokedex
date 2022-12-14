@@ -34,6 +34,7 @@ final class PokemonListRepositoryImp: PokemonListRepository {
     func fetchPokemonList() -> Observable<[Pokemon]> {
         let endpoint = PokemonListEndpoint()
         let finalUrl = endpoint.urlComponents?.url
+        print("finalUrl: ", finalUrl)
         return client.get(from: finalUrl!)
             .map { response, data -> PokemonPageResultDTO in
                 guard let jsonObject = try? JSONDecoder().decode(PokemonPageResultDTO.self, from: data) else {

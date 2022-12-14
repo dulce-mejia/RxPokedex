@@ -12,5 +12,5 @@ struct PokemonListEndpoint: Endpoint {
         "/api/v2/pokemon"
     }
     
-    var queryItems: [String : String] = ["limit":"151"]
+    var queryItems: [String : String] = ["limit":"10"]
 }

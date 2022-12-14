@@ -43,5 +43,6 @@ class PokemonView: UICollectionViewCell {
     private func configureCell() {
         guard let viewModel  = viewModel else { return }
         nameLabel.text = viewModel.pokemon.name
+      pokemonImage.image = UIImage(named: viewModel.pokemon.name)
     }
 }
